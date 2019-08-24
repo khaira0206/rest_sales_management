@@ -1,0 +1,186 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>sales_management</groupId>
+  <artifactId>sales_management</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>sales_management</name>
+  <url>http://maven.apache.org</url>
+  
+  <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>2.0.4.RELEASE</version>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+  </properties>
+
+  <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <scope>test</scope>
+        </dependency>
+         <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+         <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.8.0</version>
+            <scope>compile</scope>
+        </dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.8</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jaxrs</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-jpa</artifactId>		
+		</dependency>
+		
+		
+		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-jersey</artifactId>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.springframework.session</groupId>
+		<artifactId>spring-session-core</artifactId>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+		<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-test</artifactId>
+		<scope>test</scope>
+		</dependency>
+		                
+    </dependencies>
+    <dependencyManagement>
+
+<dependencies>
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-dependencies</artifactId>
+<version>Greenwich.SR2</version>
+<type>pom</type>
+<scope>import</scope>
+</dependency>
+
+</dependencies>
+
+</dependencyManagement>
+  
+  <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+    <groupId>io.swagger.codegen.v3</groupId>
+    <artifactId>swagger-codegen-maven-plugin</artifactId>
+    <version>3.0.0</version>
+    <executions>
+        <execution>
+        <id>sales_management</id>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <inputSpec>${project.basedir}/src/main/resources/yaml/sales_management.yaml</inputSpec>
+                <!-- language file, like e.g. JavaJaxRSCodegen shipped with swagger -->
+                <language>java</language>
+                <templateDirectory>myTemplateDir</templateDirectory>
+
+                <output>${project.build.directory}/generated-sources/swagger</output>
+                <sourceFolder>src/main/java</sourceFolder>
+                <apiPackage>com.khaira.retail.salesinquiry.api.generated</apiPackage>
+                <modelPackage>com.khaira.retail.salesinquiry.model.generated</modelPackage>
+                <addCompileSourceRoot>true</addCompileSourceRoot>
+                <generateApis>false</generateApis>
+                <generateApiTests>false</generateApiTests>
+                <generateApiDocumentation>false</generateApiDocumentation>
+                <generateModelTests>false</generateModelTests>
+                <generateModelDocumentation>false</generateModelDocumentation>
+                <generateSupportingFiles>false</generateSupportingFiles>
+            </configuration>
+        </execution>
+    </executions>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.my.generator</groupId>
+            <artifactId>customgenerator</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</plugin>
+        </plugins>
+    </build>
+   
+ 
+</project>
